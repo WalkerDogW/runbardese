@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbardese.system.mapper.BdsCodeMapper">
+
+    <!--<resultMap type="CodeData" id="CodeDataResult">-->
+        <!--<id     property="QRCode"      column="QRCode"      />-->
+        <!--<result property="RandCode"    column="RandCode"    />-->
+        <!--<result property="BacthID"     column="BacthID"     />-->
+        <!--<result property="Code"   column="Code"   />-->
+        <!--<result property="CreateDate"    column="CreateDate"    />-->
+        <!--<result property="IsSend"      column="IsSend"      />-->
+        <!--<result property="AdmCode"    column="AdmCode"    />-->
+    <!--</resultMap>-->
+
+    <!--<select id="selectAll" parameterType="CodeData" resultMap="CodeDataResult">-->
+        <!--select * from CodeData-->
+    <!--</select>-->
+
+</mapper>

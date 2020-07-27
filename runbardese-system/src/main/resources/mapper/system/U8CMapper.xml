@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.runbardese.system.mapper.U8CMapper">
+
+    <resultMap type="Voucher_head" id="Voucher_headResult">
+        <!--<id     property="company"      column="company"      />-->
+        <result property="voucher_type"    column="FtranType"    />
+        <result property="fiscal_year"     column="FYear"     />
+        <result property="accounting_period"   column="Fmonth"   />
+        <result property="voucher_id"    column="Fpzh"    />
+        <!--<result property="attachment_number"      column="attachment_number"      />-->
+        <result property="date"    column="Frq"    />
+        <result property="enter"      column="Fsry"      />
+        <!--<result property="voucher_making_system"    column="voucher_making_system"    />-->
+        <!--<result property="pk_sourcepk"    column="pk_sourcepk"    />-->
+        <result property="evidence_number"    column="Evidence_Number"    />
+    </resultMap>
+
+    <resultMap type="Entry" id="EntryResult">
+        <!--<id property="entry_id"      column="FPkId "      />-->
+        <result property="account_code"    column="Fkmbh"    />
+        <result property="abstract1"     column="Fzy"     />
+        <!--<result property="currency"   column="currency"   />-->
+        <!--<result property="exchange_rate1"    column="exchange_rate1"    />-->
+        <!--<result property="exchange_rate2"      column="exchange_rate2"      />-->
+        <!--<result property="primary_debit_amount"    column="primary_debit_amount"    />-->
+        <result property="natural_debit_currency"      column="Fje"      />
+        <!--<result property="primary_credit_amount"    column="primary_credit_amount"    />-->
+        <!--<result property="natural_credit_currency"    column="Fje"    />-->
+        <result property="Fdc" column="Fdc"/>
+        <!--<result property="unit_price"    column="unit_price"    />-->
+        <!--<result property="bill_type"    column="bill_type"    />-->
+        <!--<result property="bill_id"    column="bill_id"    />-->
+        <!--<result property="bill_date"    column="bill_date"    />-->
+        <!--<result property="settlement"    column="settlement"    />-->
+        <!--<result property="document_id"    column="document_id"    />-->
+        <!--<result property="document_date"    column="document_date"    />-->
+        <!--<result property="auxiliary_accounting"    column="DeptId"    />-->
+        <!--<result property="evidence_number"    column="Evidence_Number"    />-->
+        <result property="Fdwdm" column="Fdwdm"/>
+        <result property="DeptId"    column="DeptID"    />
+    </resultMap>
+
+    <!--<resultMap id="Auxiliary_accountingResult" type="Auxiliary_accounting">-->
+        <!--<result property="item" column="auxiliary_accounting"/>-->
+    <!--</resultMap>-->
+
+    <resultMap id="ItemResult" type="Item">
+        <result property="item" column="DeptId"/>
+    </resultMap>
+
+    <select id="selectHead" parameterType="Voucher_head" resultMap="Voucher_headResult">
+        select top 1 FtranType,FYear,Fmonth,Fpzh,CONVERT(varchar(100), Frq, 23) as Frq,Fsry,Evidence_Number
+        from tblVoucherMain
+        where SUBSTRING(CONVERT(varchar(100), CreateDate, 23), 0, 5)='2020' and Fmonth= 2 and UpStatus is null
+    </select>
+
+    <select id="selectEntryList" parameterType="Entry" resultMap="EntryResult">
+        select Fkmbh,Fzy,Fje,Fdc,Fdwdm,DeptID from tblVoucherDetail where Fpzh  = #{Fpzh} and FYear = #{FYear} and Fmonth = #{Fmonth}
+    </select>
+
+    <select id="selectAccount" resultMap="ItemResult" parameterType="Item">
+        select DeptId from tblVoucherDetail where FpkId = #{entry_id}
+    </select>
+
+    <!--<select id="selectVoucherMaxCode2" resultType="java.lang.Object">-->
+        <!--select * from GL_VOUCHER-->
+    <!--</select>-->
+
+</mapper>
