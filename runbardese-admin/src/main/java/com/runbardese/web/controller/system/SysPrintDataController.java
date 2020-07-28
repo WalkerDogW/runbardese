@@ -272,48 +272,7 @@ public class SysPrintDataController {
         return codeMsg;
 
     }
-/*
-    @PutMapping("/updateTraceByQRCode2")
-    public Object updateTraceByQRCode2(@RequestParam("lastUpMan") String lastUpMan,@RequestParam("qRCode") String qRCode,@RequestParam("username") String username){
-        //新增返回码实体类
-        UpdateCodeMsg updateCodeMsg= new UpdateCodeMsg();
-        CodeMsg codeMsg = new CodeMsg();
-        //获取URL上用户姓名
-        String name = request.getParameter("username");
-        System.out.println(request.getRequestURL()+"?"+request.getQueryString());
-        try {
-            //根据用户名获取用户信息
-            SysUser user = iSysUserService.selectUserByLoginName(name);
-            String uname = user.getLoginName();
-        }catch (RuntimeException re){
-            codeMsg.setCode(2);
-            codeMsg.setMsg("用户名不存在请联系管理员！");
-            return codeMsg;
-        }
-        //根据已传输的二维码更新传输状态
-        int num = printDataServiceImpl.updateTraceByQRCode(lastUpMan,new Date(System.currentTimeMillis()),qRCode);
-        list = printDataServiceImpl.selectPrintDataByQRCode(qRCode);
-        //判断二维码是否存在
-        if(list.isEmpty()){
-            updateCodeMsg.setqRCode(qRCode);
-            updateCodeMsg.setCode(1);
-            updateCodeMsg.setMsg("二维码不存在！");
-            return updateCodeMsg;
-        }else if (num<0){
-            //返回标签信息
-            updateCodeMsg.setCode(3);
-            updateCodeMsg.setMsg("更新失败，请联系管理员！");
-            updateCodeMsg.setqRCode(qRCode);
-            return updateCodeMsg;
-        }else{
-            updateCodeMsg.setqRCode(qRCode);
-            updateCodeMsg.setCode(0);
-            updateCodeMsg.setMsg("成功");
-            updateCodeMsg.setUpdate(num);
-            return updateCodeMsg;
-        }
-    }
-*/
+
 
     /**
      *  预分垛数据接口

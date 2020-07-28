@@ -81,6 +81,6 @@ public interface PrintDataMapper {
     @DataSource(value = DataSourceType.SLAVE)
     @Select("select top 1000 t1.* " +
             "from bds_PrintData as t1 " +
-            "where TraceStatus=0 and PrintSystem!=#{username} and  createDate>=#{today}")
+            "where TraceStatus=0 and PrintSystem!=#{username} and  LastUpdate>=#{today}")
     List<PrintData> selectMaterialsNotTrace(@Param("username") String username,@Param("today") LocalDate today);
 }

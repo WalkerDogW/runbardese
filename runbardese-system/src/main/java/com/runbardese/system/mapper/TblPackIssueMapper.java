@@ -19,11 +19,11 @@ import java.util.List;
 @Mapper
 public interface TblPackIssueMapper {
     @DataSource(value = DataSourceType.SLAVE)
-    @Select("select t1.JarNO,t1.productID,t2.description,t1.Inventory_ID,t1.nbox,t1.JarQty,t4.ContactName \n" +
-            "from tblPackIssuePlan_Detail as t1\n" +
+    @Select("select t1.JarNO,t1.productID,t2.description,t1.Inventory_ID,t1.nbox,t1.JarQty,t4.ContactName,t1.Des_StockID,t5.Description from tblPackIssuePlan_Detail as t1\n" +
             "left join inventory as t2 on t2.Inventory_ID=t1.productID\n" +
             "left join tblPackIssuePlan as t3 on t3.NO=t1.NO\n" +
             "left join mis_Customer as t4 on t4.ContactNum=t3.ContactNum\n" +
+            "left join Stock as t5 on t5.Stock_ID=t1.Des_StockID\n" +
             " where t1.JarNo=#{jarNo}   ")
     public List<TblPreSplit>  getEvidenceByJarNo(@Param("jarNo")String jarNo);
 }

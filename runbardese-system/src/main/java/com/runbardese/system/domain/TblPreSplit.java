@@ -21,4 +21,6 @@ public class TblPreSplit {
     private Integer nbox;
     private Integer JarQty;
     private String ContactName;
+    private String Des_StockID;
+    private String Description;
 }

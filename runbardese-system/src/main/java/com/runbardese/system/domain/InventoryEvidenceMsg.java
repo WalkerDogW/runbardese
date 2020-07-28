@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class InventoryEvidenceMsg {
+    private String username;
     private InventoryEvidence inventoryEvidence;
     private List<InventoryEvidenceDetail> inventoryEvidenceDetails;
 }

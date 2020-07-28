@@ -80,11 +80,21 @@ public class PLCController {
     @PostMapping("/insertProject")
     public CodeMsg  insertTblBar(@RequestBody InventoryEvidenceMsg inventoryEvidenceMsg){
         CodeMsg codeMsg = new CodeMsg();
+
+        String name = inventoryEvidenceMsg.getUsername();
+        SysUser user = iSysUserService.selectUserByLoginName(name);
+        if(user == null){
+            codeMsg.setCode(2);
+            codeMsg.setMsg("用户不存在");
+            return codeMsg;
+        }
+
         String inventoryEvidenceNumber = inventoryEvidenceMsg.getInventoryEvidence().getEvidence_Number();
         InventoryEvidence inventoryEvidence = plcMapper.selectInventoryEvidence(inventoryEvidenceNumber);
         if(inventoryEvidence != null){
             codeMsg.setCode(1);
             codeMsg.setMsg("单号已存在: "+inventoryEvidenceNumber);
+            return codeMsg;
         }else{
             int ins = plcMapper.insertInventoryEvidence(inventoryEvidenceMsg.getInventoryEvidence());
             for(InventoryEvidenceDetail inventoryEvidenceDetail : inventoryEvidenceMsg.getInventoryEvidenceDetails()){
@@ -92,8 +102,9 @@ public class PLCController {
             }
             codeMsg.setCode(0);
             codeMsg.setMsg("成功");
+            return codeMsg;
         }
-        return codeMsg;
+
     }
 
 
