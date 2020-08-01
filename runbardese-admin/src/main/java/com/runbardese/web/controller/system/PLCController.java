@@ -15,7 +15,7 @@ import java.util.List;
  * @Date 2020/7/25
  * @Time 15:04
  */
-@RequestMapping("/bds/api")
+@RequestMapping("/bds/api/")
 @RestController
 public class PLCController {
     @Autowired
@@ -30,7 +30,7 @@ public class PLCController {
     @Autowired
     HttpServletRequest request;
 
-    @GetMapping("/selectMaterialIssue/{NO}")
+    @GetMapping(value = {"/selectMaterialIssue/{NO}","/plc/selectMaterialIssue/{NO}"})
     public MaterialIssueMsg selectMaterialIssue(@PathVariable("NO") String NO,@RequestParam("username") String username){
         MaterialIssueMsg materialIssueMsg = new MaterialIssueMsg();
         CodeMsg codeMsg = new CodeMsg();
@@ -39,7 +39,6 @@ public class PLCController {
 
         //获取URL上用户姓名
         String name = request.getParameter("username");
-        PrintDataMsg printDataMsg = new PrintDataMsg();
         System.out.println(request.getRequestURL()+"?"+request.getQueryString());
         try {
             //根据用户名获取用户信息
@@ -77,7 +76,7 @@ public class PLCController {
 
 
 
-    @PostMapping("/insertProject")
+    @PostMapping(value = {"/insertProject","/plc/insertProject"})
     public CodeMsg  insertTblBar(@RequestBody InventoryEvidenceMsg inventoryEvidenceMsg){
         CodeMsg codeMsg = new CodeMsg();
 
@@ -111,7 +110,7 @@ public class PLCController {
 
 
 
-    @GetMapping("/selectInventoryEvidence/{NO}")
+    @GetMapping(value = {"/selectInventoryEvidence/{NO}","/plc/selectInventoryEvidence/{NO}"})
     public InventoryEvidenceMsg selectMaterialIssue(@PathVariable("NO") String NO){
         InventoryEvidenceMsg inventoryEvidenceMsg = new InventoryEvidenceMsg();
         inventoryEvidenceMsg.setInventoryEvidence(plcMapper.selectInventoryEvidence(NO));

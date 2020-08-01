@@ -16,7 +16,7 @@ runbardese:
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为80
-  port: 8080
+  port: 12573 
   servlet:
     # 应用的访问路径
     context-path: /
@@ -79,6 +79,9 @@ mybatis:
     # 加载全局的配置文件
     configLocation: classpath:mybatis/mybatis-config.xml
 
+
+    configuration:
+      jdbc-type-for-null: null
 # PageHelper分页插件
 pagehelper: 
   #helperDialect: mysql

@@ -60,6 +60,8 @@ public class TblBarRelation {
     @ApiModelProperty(value = "审核时间")
     private Date verifyDate;
 
+    private String DesPalletCode;
+
     //上托盘子表
 //    private List<TblBarRelationDetail> tblBarRelationDetailList;
 

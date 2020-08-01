@@ -63,5 +63,7 @@ public class PrintData {
     //标签模板名称
     private String jarReportName;
 
+    //净重标签
+    private String TUnit_Weight;
 
 }

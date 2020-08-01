@@ -33,7 +33,8 @@ public class TblBarServiceImpl implements TblBarService {
                 tblBarRelation.getCreateDate(),
                 tblBarRelation.getVerified(),
                 tblBarRelation.getVerifier(),
-                tblBarRelation.getVerifyDate());
+                tblBarRelation.getVerifyDate(),
+                tblBarRelation.getDesPalletCode());
     }
 
     /**

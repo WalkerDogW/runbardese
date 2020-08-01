@@ -25,7 +25,7 @@ public class VoucherServiceController {
    // @Scheduled(cron = "0/5 *  *  * * ?" )
     public void addVoucher() {
         //通过http请求获取xml内容
-        String str = new HttpClient().getHttpData("http://localhost:8080/api/u8c/getNcXml");
+        String str = new HttpClient().getHttpData("http://localhost:12573/api/u8c/getNcXml");
         //解析出evidenceNum
         String evidenceNum = str.substring(str.indexOf("<evidence_number>") + 17, str.indexOf("</evidence_number>"));
         //打印http获取字符串

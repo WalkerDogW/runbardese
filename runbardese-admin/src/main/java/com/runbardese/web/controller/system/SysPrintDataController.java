@@ -58,7 +58,7 @@ public class SysPrintDataController {
     private TblPackIssueService tblPackIssueService;
 
     @ApiOperation("新增托盘信息")
-    @PostMapping("/insertTblBar")
+    @PostMapping(value = {"/insertTblBar","/trace/insertTblBar"})
     public CodeMsg  insertTblBar(@RequestBody TblBar tblBar){
         //创建返回消息实体
         CodeMsg codeMsg = new CodeMsg();
@@ -112,7 +112,7 @@ public class SysPrintDataController {
     @ApiOperation("获取打印标签明细")
     @ApiImplicitParams({@ApiImplicitParam(name = "jarNo", value = "标签批号", required = true, dataType = "string", paramType = "path"),
             @ApiImplicitParam(name = "username", value = "请求姓名", required = true, dataType = "string", paramType = "query")})
-    @GetMapping("/findByJarNo/{jarNo}")
+    @GetMapping(value = {"/findByJarNo/{jarNo}","/trace/findByJarNo/{jarNo}"})
     public PrintDataMsg selectPrintDataByJarNo(@PathVariable("jarNo") String jarNo, @RequestParam("username") String username){
         //新增返回码实体类
         CodeMsg codeMsg= new CodeMsg();
@@ -159,7 +159,7 @@ public class SysPrintDataController {
     @ApiImplicitParams({@ApiImplicitParam(name = "lastUpMan", value = "操作员", required = true, dataType = "string", paramType = "query"),
             @ApiImplicitParam(name = "qRCode", value = "标签二维码", required = true, dataType = "string", paramType = "query"),
             @ApiImplicitParam(name = "username", value = "请求姓名", required = true, dataType = "string", paramType = "query")})
-    @PutMapping("/updateByQRCode")
+    @PutMapping(value = {"/updateByQRCode","/trace/updateByQRCode"})
     public Object updatePrintDataByQRCode(@RequestParam("lastUpMan") String lastUpMan,@RequestParam("qRCode") String qRCode,@RequestParam("username") String username){
         //新增返回码实体类
         UpdateCodeMsg updateCodeMsg= new UpdateCodeMsg();
@@ -201,7 +201,7 @@ public class SysPrintDataController {
     }
 
 
-    @GetMapping("/materialsNotTrace")
+    @GetMapping(value = {"/materialsNotTrace","/trace/materialsNotTrace"})
     public PrintDataMsg selectMaterialsNotTrace(@RequestParam("username") String username){
         LocalDate today = LocalDate.now();
         //新增返回码实体类
@@ -256,7 +256,7 @@ public class SysPrintDataController {
      * @param tblTraceMsg 二维码列表
      * @return
      */
-    @PostMapping("/updateTraceByQRCode")
+    @PostMapping(value = {"/updateTraceByQRCode","/trace/updateTraceByQRCode"})
     public CodeMsg updateTraceByQRCode( @RequestBody  TblTraceMsg tblTraceMsg){
         //新增返回码实体类
         CodeMsg codeMsg = new CodeMsg();
@@ -280,7 +280,7 @@ public class SysPrintDataController {
      * @param username
      * @return
      */
-    @GetMapping("/GetEvidenceByJarNo/{jarNo}")
+    @GetMapping(value = {"/GetEvidenceByJarNo/{jarNo}","/trace/GetEvidenceByJarNo/{jarNo}"})
     public TblPreSplitMsg getEvidenceByJarNo(@PathVariable("jarNo") String jarNo,@RequestParam("username")String username){
         TblPreSplitMsg tblPreSplitMsg = new TblPreSplitMsg();
         CodeMsg codeMsg = new CodeMsg();
