@@ -120,6 +120,7 @@ public class SysPrintDataController {
         String name = request.getParameter("username");
         PrintDataMsg printDataMsg = new PrintDataMsg();
         System.out.println(request.getRequestURL()+"?"+request.getQueryString());
+        log.info(request.getRequestURL()+"?"+request.getQueryString());
         try {
             //根据用户名获取用户信息
             SysUser user = iSysUserService.selectUserByLoginName(name);
@@ -160,13 +161,16 @@ public class SysPrintDataController {
             @ApiImplicitParam(name = "qRCode", value = "标签二维码", required = true, dataType = "string", paramType = "query"),
             @ApiImplicitParam(name = "username", value = "请求姓名", required = true, dataType = "string", paramType = "query")})
     @PutMapping(value = {"/updateByQRCode","/trace/updateByQRCode"})
-    public Object updatePrintDataByQRCode(@RequestParam("lastUpMan") String lastUpMan,@RequestParam("qRCode") String qRCode,@RequestParam("username") String username){
+    public Object updatePrintDataByQRCode(@RequestParam("lastUpMan") String lastUpMan,@RequestParam(required = false,value = "qRCode") String qRCode,@RequestParam("username") String username){
         //新增返回码实体类
         UpdateCodeMsg updateCodeMsg= new UpdateCodeMsg();
         CodeMsg codeMsg = new CodeMsg();
         //获取URL上用户姓名
         String name = request.getParameter("username");
         System.out.println(request.getRequestURL()+"?"+request.getQueryString());
+        log.info(request.getRequestURL()+"?"+request.getQueryString());
+
+
         try {
             //根据用户名获取用户信息
             SysUser user = iSysUserService.selectUserByLoginName(name);

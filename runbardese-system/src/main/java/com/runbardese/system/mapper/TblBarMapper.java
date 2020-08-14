@@ -21,7 +21,7 @@ public interface TblBarMapper {
     @Insert("insert into tblBarRelation" +
             "(evidence_number,fdate,stock_id,palletCode,desPalletCode,type,summary,fmaker,createDate,verified,verifier,verifyDate,DesPalletCode) " +
             "values(#{evidence_Number},#{fdate},#{stock_ID},#{palletCode},#{desPalletCode},#{type},#{summary},#{fmaker}" +
-            ",#{createDate},#{verified},#{verifier},#{verifyDate},#{DesPalletCode})")
+            ",#{createDate},#{verified},#{verifier},#{verifyDate})")
     public int insertTblBarRelation(@Param("evidence_Number") String evidence_Number,
                                     @Param("fdate") Date fdate,
                                     @Param("stock_ID") String stock_ID,
@@ -33,8 +33,7 @@ public interface TblBarMapper {
                                     @Param("createDate") Date createDate,
                                     @Param("verified") int verified,
                                     @Param("verifier") String verifier,
-                                    @Param("verifyDate") Date verifyDate,
-                                    @Param("DesPalletCode") String DesPalletCode);
+                                    @Param("verifyDate") Date verifyDate);
     /**
      * 新增上托盘明细表
      */

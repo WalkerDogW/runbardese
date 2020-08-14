@@ -66,4 +66,13 @@ public class PrintData {
     //净重标签
     private String TUnit_Weight;
 
+    //品牌图片
+    private String LogoPic;
+
+    private String dev1;
+    private String dev2;
+    private String dev3;
+    private String dev4;
+    private String dev5;
+
 }
