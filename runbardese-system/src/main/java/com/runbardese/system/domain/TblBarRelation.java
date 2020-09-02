@@ -1,5 +1,6 @@
 package com.runbardese.system.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -60,7 +61,8 @@ public class TblBarRelation {
     @ApiModelProperty(value = "审核时间")
     private Date verifyDate;
 
-    private String DesPalletCode;
+    @JsonProperty(value = "DesStock_ID")
+    private String DesStock_ID;
 
     //上托盘子表
 //    private List<TblBarRelationDetail> tblBarRelationDetailList;

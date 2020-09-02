@@ -1,119 +1,119 @@
 # 数据源配置
 spring:
-    datasource:
-        druid:
-            type: com.alibaba.druid.pool.DruidDataSource
-            # 主库数据源
-            master:
-#                url: jdbc:mysql://localhost:3306/bardese?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-#                username: root
-#                password: 654321
-                url: jdbc:mysql://47.100.136.208:3306/ry?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-                username: ry
-                password: ry
-            slave:
-                # 从数据源开关/默认关闭
-                enabled: true
-                username: sa
-#                url: jdbc:sqlserver://192.168.100.6:1433;databasename=e8zs
-#                password: Badese123321######
+  datasource:
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      # 主库数据源
+      master:
+        #                url: jdbc:mysql://localhost:3306/bardese?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        #                username: root
+        #                password: 654321
+        url: jdbc:mysql://47.100.136.208:3306/ry?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        username: ry
+        password: ry
+      slave:
+        # 从数据源开关/默认关闭
+        enabled: true
+        username: sa
+        #                url: jdbc:sqlserver://192.168.100.6:1433;databasename=e8zs
+        #                password: Badese123321######
 
-                url: jdbc:sqlserver://192.168.100.130:1433;databasename=e8zstest
-                password: Badese$$$$$
-
-
-            slave2:
-                # 从数据源开关/默认关闭
-                enabled: true
-                url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
-                username: sa
-                #password: 123!@#qwe
-                password: Badese123321######
-            slave3:
-              # 从数据源开关/默认关闭
-              enabled: true
-              url: jdbc:oracle:thin:@192.168.100.185:1521:orcl
-              username: U8C1
-              #password: 123!@#qwe
-              password: U8C1
-            slave4:
-              # 从数据源开关/默认关闭
-              enabled: true
-              username: sa
-              url: jdbc:sqlserver://192.168.100.130:1433;databasename=e8zstest
-              password: Badese$$$$$
-#              url: jdbc:sqlserver://192.168.100.6:1433;databasename=e8zs
-#              password: Badese123321######
+        url: jdbc:sqlserver://192.168.100.130:1433;databasename=e8zstest
+        password: Badese$$$$$
 
 
-            slave5:
-              #MES
-              # 从数据源开关/默认关闭
-              enabled: true
-              url: jdbc:sqlserver://192.168.100.50:1433;databasename=LongtecERP
-              username: sa
-              password: 123!@#qwe
-#            slave6:
-#              # 从数据源开关/默认关闭
-#              enabled: true
-#              #url: jdbc:sqlserver://192.168.100.48:1433;databasename=test
-#              url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
-#              username: sa
-#              #password: 123!@#qwe
-#              password: Badese123321######
-#            slave7:
-#              # 从数据源开关/默认关闭
-#              enabled: true
-#              #url: jdbc:sqlserver://192.168.100.48:1433;databasename=test
-#              url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
-#              username: sa
-#              #password: 123!@#qwe
-#              password: Badese123321######
-#            slave8:
-#              # 从数据源开关/默认关闭
-#              enabled: true
-#              #url: jdbc:sqlserver://192.168.100.48:1433;databasename=test
-#              url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
-#              username: sa
-#              #password: 123!@#qwe
-#              password: Badese123321######
-            # 初始连接数
-            initialSize: 10
-            # 最小连接池数量
-            minIdle: 10
-            # 最大连接池数量
-            maxActive: 20
-            # 配置获取连接等待超时的时间
-            maxWait: 60000
-            # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-            timeBetweenEvictionRunsMillis: 60000
-            # 配置一个连接在池中最小生存的时间，单位是毫秒
-            minEvictableIdleTimeMillis: 300000
-            # 配置一个连接在池中最大生存的时间，单位是毫秒
-            maxEvictableIdleTimeMillis: 900000
-            # 配置检测连接是否有效
-            #validationQuery: SELECT 1 FROM DUAL
-            validationQuery: SELECT 1
-            testWhileIdle: true
-            testOnBorrow: false
-            testOnReturn: false
-            webStatFilter: 
-                enabled: true
-            statViewServlet:
-                enabled: true
-                # 设置白名单，不填则允许所有访问
-                allow:
-                url-pattern: /druid/*
-                # 控制台管理用户名和密码
-                login-username: 
-                login-password: 
-            filter:
-                stat:
-                    enabled: true
-                    # 慢SQL记录
-                    log-slow-sql: true
-                    slow-sql-millis: 1000
-                    merge-sql: false
-                wall:
-                    config:
-                        multi-statement-allow: true
+      slave2:
+        # 从数据源开关/默认关闭
+        enabled: true
+        url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
+        username: sa
+        #password: 123!@#qwe
+        password: Badese123321######
+      slave3:
+        # 从数据源开关/默认关闭
+        enabled: true
+        url: jdbc:oracle:thin:@192.168.100.185:1521:orcl
+        username: U8C1
+        #password: 123!@#qwe
+        password: U8C1
+      slave4:
+        # 从数据源开关/默认关闭
+        enabled: true
+        username: sa
+        url: jdbc:sqlserver://192.168.100.130:1433;databasename=e8zstest
+        password: Badese$$$$$
+      #              url: jdbc:sqlserver://192.168.100.6:1433;databasename=e8zs
+      #              password: Badese123321######
+
+
+      slave5:
+        #MES
+        # 从数据源开关/默认关闭
+        enabled: true
+        url: jdbc:sqlserver://192.168.100.50:1433;databasename=LongtecERP
+        username: sa
+        password: 123!@#qwe
+      #            slave6:
+      #              # 从数据源开关/默认关闭
+      #              enabled: true
+      #              #url: jdbc:sqlserver://192.168.100.48:1433;databasename=test
+      #              url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
+      #              username: sa
+      #              #password: 123!@#qwe
+      #              password: Badese123321######
+      #            slave7:
+      #              # 从数据源开关/默认关闭
+      #              enabled: true
+      #              #url: jdbc:sqlserver://192.168.100.48:1433;databasename=test
+      #              url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
+      #              username: sa
+      #              #password: 123!@#qwe
+      #              password: Badese123321######
+      #            slave8:
+      #              # 从数据源开关/默认关闭
+      #              enabled: true
+      #              #url: jdbc:sqlserver://192.168.100.48:1433;databasename=test
+      #              url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
+      #              username: sa
+      #              #password: 123!@#qwe
+      #              password: Badese123321######
+      # 初始连接数
+      initialSize: 10
+      # 最小连接池数量
+      minIdle: 10
+      # 最大连接池数量
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      maxEvictableIdleTimeMillis: 900000
+      # 配置检测连接是否有效
+      #validationQuery: SELECT 1 FROM DUAL
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      webStatFilter:
+        enabled: true
+      statViewServlet:
+        enabled: true
+        # 设置白名单，不填则允许所有访问
+        allow:
+        url-pattern: /druid/*
+        # 控制台管理用户名和密码
+        login-username:
+        login-password:
+      filter:
+        stat:
+          enabled: true
+          # 慢SQL记录
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true

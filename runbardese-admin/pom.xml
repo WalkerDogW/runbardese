@@ -69,13 +69,19 @@
         </dependency>
 
         <!-- 添加sqlserver依赖-->
+<!--        <dependency>-->
+<!--            <groupId>com.microsoft.sqlserver</groupId>-->
+<!--            <artifactId>sqljdbc4</artifactId>-->
+<!--            <version>4.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>sqljdbc4</artifactId>
-            <version>4.0</version>
+            <artifactId>mssql-jdbc</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
-		<!-- 核心模块-->
+
+        <!-- 核心模块-->
         <dependency>
             <groupId>com.runbardese</groupId>
             <artifactId>runbardese-framework</artifactId>

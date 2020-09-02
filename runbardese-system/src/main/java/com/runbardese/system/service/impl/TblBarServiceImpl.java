@@ -22,7 +22,8 @@ public class TblBarServiceImpl implements TblBarService {
      */
     @Override
     public int insertTblBarRelation(TblBarRelation tblBarRelation) {
-        return  tblBarMapper.insertTblBarRelation(tblBarRelation.getEvidence_Number(),
+        return  tblBarMapper.insertTblBarRelation(
+                tblBarRelation.getEvidence_Number(),
                 tblBarRelation.getFdate(),
                 tblBarRelation.getStock_ID(),
                 tblBarRelation.getPalletCode(),
@@ -33,7 +34,9 @@ public class TblBarServiceImpl implements TblBarService {
                 tblBarRelation.getCreateDate(),
                 tblBarRelation.getVerified(),
                 tblBarRelation.getVerifier(),
-                tblBarRelation.getVerifyDate());
+                tblBarRelation.getVerifyDate(),
+                tblBarRelation.getDesStock_ID());
+
     }
 
     /**
