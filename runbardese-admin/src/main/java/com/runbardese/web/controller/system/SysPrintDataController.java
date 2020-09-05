@@ -61,7 +61,8 @@ public class SysPrintDataController {
     @ApiOperation("新增托盘信息")
     @PostMapping(value = {"/insertTblBar", "/trace/insertTblBar"})
     public CodeMsg insertTblBar(@RequestBody TblBar tblBar) {
-        log.info("********************\n" + request.getRequestURL() + "?" + request.getQueryString() + "\n********************");
+        log.info("********************\n" + request.getRequestURL() + "?" + request.getQueryString() + "\n" + tblBar + "\n********************");
+
         //创建返回消息实体
         CodeMsg codeMsg = new CodeMsg();
         //获取托盘主表
@@ -263,7 +264,7 @@ public class SysPrintDataController {
     @GetMapping("/testapi")
     public TblBar testapi() {
         TblBar tblBar = new TblBar();
-        tblBar.setTblBarRelation(new TblBarRelation()) ;
+        tblBar.setTblBarRelation(new TblBarRelation());
         tblBar.setTblBarRelationDetailList(new ArrayList<>());
         return tblBar;
     }
@@ -277,7 +278,7 @@ public class SysPrintDataController {
      */
     @PostMapping(value = {"/updateTraceByQRCode", "/trace/updateTraceByQRCode"})
     public CodeMsg updateTraceByQRCode(@RequestBody TblTraceMsg tblTraceMsg) {
-        log.info("********************\n" + request.getRequestURL() + "?" + request.getQueryString() + "\n********************");
+        log.info("********************\n" + request.getRequestURL() + "?" + request.getQueryString() + "\n" + tblTraceMsg + "\n********************");
 
         //新增返回码实体类
         CodeMsg codeMsg = new CodeMsg();

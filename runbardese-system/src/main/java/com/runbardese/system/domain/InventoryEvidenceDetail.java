@@ -21,8 +21,10 @@ public class InventoryEvidenceDetail {
     private Integer NOID;
     //计划量
     private Double Qty;
-    //短缺量
-    private Double Shortage_Qty;
+
+//    //短缺量
+//    private Double Shortage_Qty;
+
     //实发量
     private Double Actual_Qty;
     //物料批号
