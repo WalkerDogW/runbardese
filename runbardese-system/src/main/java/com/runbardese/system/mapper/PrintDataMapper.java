@@ -26,7 +26,7 @@ public interface PrintDataMapper {
     @DataSource(value = DataSourceType.SLAVE)
     @Select("select t1.*,t2.jarReportName " +
             "from bds_PrintData as t1 " +
-            "inner join tblLabelPrintReportData as t2 on t1.AdmCode=t2.AdmCode "+
+            "inner join tblLabelPrintReportData as t2 on t1.AdmCode=t2.AdmCode AND Printed=0 "+
             "where t1.jarNo = #{jarNo} and t1.printStatus = 0")
     public List<PrintData> selectPrintDataByJarNo(@Param("jarNo")String jarNo);
 

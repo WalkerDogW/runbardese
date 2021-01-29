@@ -29,15 +29,74 @@ public class MesController {
     //注入request
     @Autowired
     HttpServletRequest request;
+/*
+
+    */
+/**
+     * 根据日期去查 TblLabelPrintReportData
+     * @param DuDate
+     * @return
+     *//*
+
+    @GetMapping("/selectTblLabelPrintReportData{DuDate}")
+    public List findByDate(@PathVariable("DuDate") String DuDate ){
+
+      return new list  =   TblLabelPrintReportDataService.findByDuDate(DuDate);
+
+    }
+*/
+
+
+    @GetMapping("/selectProductExecution/{BatchNo}")
+    public ProductExecutionMsg selectProductExecution(@PathVariable("BatchNo")String BatchNo) {
+        ProductExecutionMsg productExecutionMsg = new ProductExecutionMsg();
+        CodeMsg codeMsg = new CodeMsg();
+
+
+        //获取URL上用户姓名
+        String name = request.getParameter("username");
+        System.out.println(request.getRequestURL()+"?"+request.getQueryString());
+        try {
+            //根据用户名获取用户信息
+            SysUser user = iSysUserService.selectUserByLoginName(name);
+            String uname = user.getLoginName();
+        }catch (RuntimeException re){
+            codeMsg.setCode(2);
+            codeMsg.setMsg("用户名不存在请联系管理员！");
+            productExecutionMsg.setCodeMsg(codeMsg);
+            return productExecutionMsg;
+        }
+
+        //Tblproductexecution productExecutionList = mesMapper.selectTblproductexecution(BatchNo);
+        Tblproductexecution tblproductexecution = mesMapper.selectTblproductexecution(BatchNo);
+
+        if(tblproductexecution==null){
+            codeMsg.setMsg("编号不存在");
+            codeMsg.setCode(1);
+            productExecutionMsg.setCodeMsg(codeMsg);
+        }
+        else {
+            codeMsg.setMsg("成功");
+            codeMsg.setCode(0);
+            productExecutionMsg.setCodeMsg(codeMsg);
+
+            List<Tblproductexecution_detail> tblproductexecution_detailList = mesMapper.selectTblproductexecution_detail(BatchNo);
+
+            productExecutionMsg.setProductexecution(tblproductexecution);
+            productExecutionMsg.setProductexecution_detail(tblproductexecution_detailList);
+        }
+        return productExecutionMsg;
+    }
+
+
+
+
 
 
     @GetMapping("/selectERPProd/{ProdId}")
     public ERPProdMsg selectERPProd(@PathVariable("ProdId")String ProdId){
         ERPProdMsg erpProdMsg = new ERPProdMsg();
         CodeMsg codeMsg = new CodeMsg();
-
-
-
 
         //获取URL上用户姓名
         String name = request.getParameter("username");

@@ -18,7 +18,7 @@ spring:
         url: jdbc:sqlserver://192.168.100.6:1433;databasename=e8zs
         password: Badese123321######
 
-      #                url: jdbc:sqlserver://192.168.100.130:1433;databasename=e8zstest
+      #                url: jdbc:sqlserver://192.168.100.130  :1433;databasename=e8zstest
       #                password: Badese$$$$$
 
 
@@ -53,14 +53,14 @@ spring:
         url: jdbc:sqlserver://192.168.100.50:1433;databasename=LongtecERP
         username: sa
         password: 123!@#qwe
-      #            slave6:
-      #              # 从数据源开关/默认关闭
-      #              enabled: true
-      #              #url: jdbc:sqlserver://192.168.100.48:1433;databasename=test
-      #              url: jdbc:sqlserver://192.168.100.5:1433;databasename=EPMIS
-      #              username: sa
-      #              #password: 123!@#qwe
-      #              password: Badese123321######
+
+      slave6:
+        # 从数据源开关/默认关闭
+        enabled: true
+        url: jdbc:sqlserver://192.168.100.76:1433;databasename=T1
+        username: sa
+        #password: 123!@#qwe
+        password: Badese123321$$$$$$
       #            slave7:
       #              # 从数据源开关/默认关闭
       #              enabled: true

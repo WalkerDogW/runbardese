@@ -4,6 +4,8 @@ import com.runbardese.common.annotation.DataSource;
 import com.runbardese.common.enums.DataSourceType;
 import com.runbardese.system.domain.ERPProd;
 import com.runbardese.system.domain.ERPProdBom;
+import com.runbardese.system.domain.Tblproductexecution;
+import com.runbardese.system.domain.Tblproductexecution_detail;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -40,5 +42,20 @@ public interface MesMapper {
     @Insert("insert into ERPProdBOM (LineNum,MatCode,MatName,TargetQty,FuncCode,Param1,Param2,Position,Remark,ProdId) " +
             "Values (#{LineNum},#{MatCode},#{MatName},#{TargetQty},#{FuncCode},#{Param1},#{Param2},#{Position},#{Remark},#{ProdId})")
     public int insertERPProdBOM(ERPProdBom erpProdBOM);
+
+    @DataSource(value = DataSourceType.SLAVE)
+    @Select(" select \n" +
+            " t1.*,t3.DuDate,t2.Description\n" +
+            "from Tblproductexecution as t1\n" +
+            " left join stock as t2 on t1.WipID = t2.Stock_ID\n" +
+            " left join Material_Issue_Plan as t3 on t3.No = t1.BatchNo where BatchNo= #{BatchNo}")
+    public Tblproductexecution selectTblproductexecution(@Param("BatchNo") String BatchNo);
+
+
+    @DataSource(value = DataSourceType.SLAVE)
+    @Select("select * from Tblproductexecution_detail where BatchNo= #{BatchNo}")
+    public List<Tblproductexecution_detail> selectTblproductexecution_detail(@Param("BatchNo") String BatchNo);
+
+
 
 }

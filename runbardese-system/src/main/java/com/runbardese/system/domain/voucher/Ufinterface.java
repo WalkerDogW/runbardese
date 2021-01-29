@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlRootElement(name = "ufinterface")
 @XmlType(propOrder = {"account","billtype","codeexchanged","isexchange","operation","proc","receiver","replace","roottag","sender","voucher"})
-public class Ufinterface {
+public class    Ufinterface {
 
     //指定导入NC系统的账套
     private String account;

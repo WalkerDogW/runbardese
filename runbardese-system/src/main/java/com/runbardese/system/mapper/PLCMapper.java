@@ -20,12 +20,16 @@ import java.util.List;
 public interface PLCMapper {
     @DataSource(value = DataSourceType.SLAVE)
 //    @Select("select *  from ProjectMaterial_Issue_Plan where No=#{No}")
-    @Select("select *  from Material_Issue_Plan where No=#{No}")
+    @Select("select t1.*,t2.Description as Des_StockName  " +
+            "from Material_Issue_Plan as t1 " +
+            "left join Stock as t2 on t1.Des_StockId = t2.Stock_Id " +
+            "where No=#{No}")
     public MaterialIssue selectMaterialIssue(@Param("No") String No);
 
     @DataSource(value = DataSourceType.SLAVE)
 //    @Select("select *  from ProjectMaterial_Issue_Plan_Detail where No=#{No}")
-    @Select("select *  from Material_Issue_Plan_Detail where No=#{No}")
+    @Select("select t1.*,t2.description from Material_Issue_Plan_Detail t1\n" +
+            "left join inventory t2 on t1.inventory_id=t2.inventory_id where No=#{No} ")
     public List<MaterialIssueDetail> selectMaterialIssueDetail(@Param("No") String No);
 
     @DataSource(value = DataSourceType.SLAVE)
@@ -51,6 +55,8 @@ public interface PLCMapper {
 
 
     @DataSource(value = DataSourceType.SLAVE)
-    @Update("update Material_Issue_Plan_Detail set Q1=#{Q1},ActUsedQty=#{ActUsedQty} where No=#{No} and Inventory_ID=#{Inventory_ID} and NOID=#{NOID}")
+    @Update("update Material_Issue_Plan_Detail " +
+            "set Q1=#{Q1},Q2=#{Q2},Q3=#{Q3},ActUsedQty=#{ActUsedQty} " +
+            "where No=#{No} and Inventory_ID=#{Inventory_ID} and NOID=#{NOID}")
     public int updateMaterialIssueDetail(MaterialIssueDetail materialIssueDetail);
 }

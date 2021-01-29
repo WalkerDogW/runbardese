@@ -37,16 +37,18 @@ public class MaterialIssueDetail {
     //第1次发料数量
     private Double Q1;
 
-//    //第2次发料数量
-//    private Double Q2;
-//    //第3次发料数量
-//    private Double Q3;
+    //第2次发料数量
+    private Double Q2;
+    //第3次发料数量
+    private Double Q3;
 //    //第4次发料数量
 //    private Double Q4;
 //    //第5次发料数量
 //    private Double Q5;
 
     private Double ActUsedQty;
+
+    private String description;
 
 
 

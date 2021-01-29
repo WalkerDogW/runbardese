@@ -28,4 +28,5 @@ public class CodeData {
     private int IsSend;
     //管理码
     private String AdmCode;
+
 }

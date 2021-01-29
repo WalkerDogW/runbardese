@@ -27,6 +27,7 @@ public class MaterialIssue {
     //车间编码
     private String Des_StockID;
 
+    private String Des_StockName;
 //    //发料次数
 //    private Integer cLast;
 //    //领料方式 (4  PLC配料)
@@ -43,4 +44,6 @@ public class MaterialIssue {
     private String BOM;
 
     private Double DircQty;
+
+    private String jihao;
 }

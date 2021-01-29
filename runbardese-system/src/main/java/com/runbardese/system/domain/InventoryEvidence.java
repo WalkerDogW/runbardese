@@ -17,6 +17,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class InventoryEvidence {
     //计划编号
     private String Evidence_Number;
@@ -25,7 +26,7 @@ public class InventoryEvidence {
     private LocalDate date;
     //原库位
     private Integer Type;
-    private String Stock_ID;
+    private String 代码;
     //目的库位
     private String DesStock_ID;
     //套料计划号
